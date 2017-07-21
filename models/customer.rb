@@ -16,7 +16,7 @@ attr_reader( :id, :first_name, :last_name, :address, :telephone)
       sql = " INSERT INTO customers
       (first_name, last_name, address, telephone)
       VALUES
-      ('#{@first_name}', '#{@last_name}', '#{@address}', '#{@telephone}')
+      ( '#{@first_name}', '#{@last_name}', '#{@address}', '#{@telephone}' )
       RETURNING id;"
       customer_details = SqlRunner.run(sql).first
       @id = customer_details['id'].to_i
@@ -26,7 +26,7 @@ attr_reader( :id, :first_name, :last_name, :address, :telephone)
       sql = " UPDATE customers SET
       (first_name, last_name, address, telephone)
       VALUES
-      ('#{@first_name}', '#{@last_name}', '#{@address}', '#{@telephone}')
+      ( '#{@first_name}', '#{@last_name}', '#{@address}', '#{@telephone}' )
       WHERE id = #{@id}; "
       SqlRunner.run(sql)
   end
