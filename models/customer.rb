@@ -19,8 +19,26 @@ attr_reader()
       ('#{@first_name}', '#{@last_name}', '#{@address}', '#{@telephone}')
       RETURNING id;"
       customer_details = SqlRunner.run(sql).first
-      @id = customers_details['id'].to_i
+      @id = customer_details['id'].to_i
   end
+
+
+  def find_animal()
+      sql = "SELECT * FROM animals WHERE id = #{@animal_id}"
+      animal = SqlRunner.run(sql).first
+      result = Animal.new( animal )
+      return result
+  end
+
+  def update()
+      sql = " UPDATE customers SET
+      (first_name, last_name, address, telephone)
+      VALUES
+      ('#{@first_name}', '#{@last_name}', '#{@address}', '#{@telephone}')
+      WHERE id = #{@id} "
+      SqlRunner.run(sql)
+  end
+
 
 
 
