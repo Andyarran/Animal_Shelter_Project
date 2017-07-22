@@ -15,7 +15,15 @@ attr_reader( :id, :name, :type, :ready, :sex, :age, :description, :owner_id)
     @owner_id = options['owner_id'].to_i
   end
 
-  
+  def save()
+    sql = " INSERT INTO animals
+    (name, type, ready, sex, age, description,owner_id) 
+    VALUES
+    ('#{@name}', '#{@type}', '#{@ready}', '#{@sex}', '#{@age}', '#{@description}', '#{@owner_id}')
+    RETURNING id; "
+    animal_details = SqlRunner.run(sql).first
+    @id = animal_details['id'.to_i]
+  end
 
 
 
