@@ -3,7 +3,8 @@ DROP TABLE IF EXISTS animals;
 
 CREATE TABLE customers(
   id SERIAL4 PRIMARY KEY,
-  name VARCHAR(255),
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
   address TEXT,
   telephone VARCHAR(255)
 );
