@@ -2,12 +2,12 @@ require_relative( '../db/sql_runner' )
 
 class Animal
 
-attr_reader( :id, :name, :type, :ready, :sex, :age, :description, :owner_id)
+attr_reader( :id, :name, :type_id, :ready, :sex, :age, :description, :owner_id)
 
   def initialize(options)
       @id = options['id'].to_i if options['id']
       @name = options['name']
-      @type = options['type']
+      @type_id = options['type_id'].to_i
       @ready = options['ready']
       @sex = options['sex']
       @age = options['age']
@@ -17,12 +17,12 @@ attr_reader( :id, :name, :type, :ready, :sex, :age, :description, :owner_id)
 
   def save()
       sql = " INSERT INTO animals
-      (name, type, ready, sex, age, description, owner_id) 
+      (name, type_id, ready, sex, age, description, owner_id) 
       VALUES
-      ('#{@name}', '#{@type}', '#{@ready}', '#{@sex}', '#{@age}', '#{@description}', '#{@owner_id}')
+      ('#{@name}', '#{@type_id}', '#{@ready}', '#{@sex}', '#{@age}', '#{@description}', '#{@owner_id}')
       RETURNING id; "
       animal_details = SqlRunner.run(sql).first
-      @id = animal_details['id'.to_i]
+      @id = animal_details['id'].to_i
   end
 
   def delete()
@@ -32,9 +32,9 @@ attr_reader( :id, :name, :type, :ready, :sex, :age, :description, :owner_id)
 
   def update()
       sql = " UPDATE animals SET
-      (name, type, ready, sex, age, description, owner_id)
+      (name, type_id, ready, sex, age, description, owner_id)
       VALUES
-       ('#{@name}', '#{@type}', '#{@ready}', '#{@sex}', '#{@age}', '#{@description}', '#{@owner_id}')
+       ('#{@name}', '#{@type_id}', '#{@ready}', '#{@sex}', '#{@age}', '#{@description}', '#{@owner_id}')
        WHERE id = #{id}; "
        SqlRunner.run(sql)
   end
@@ -60,6 +60,12 @@ attr_reader( :id, :name, :type, :ready, :sex, :age, :description, :owner_id)
       return result
   end
 
+  def self.find_by_type(id)
+    sql = " SELECT * FROM animals WHERE type_id = '#{type}'; "
+    animals = SqlRunner.run(sql).first
+    result = animals.map { |animal| Animal.new(animal)}
+    return result
+  end
 
 
 

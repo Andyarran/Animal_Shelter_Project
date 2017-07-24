@@ -1,0 +1,25 @@
+<h1>Our Dogs</h1>
+
+<p>Dogs take up a lot of time and energy. Yes, they are rewarding. But if you live alone and work twenty hours a day, then perhaps a dog is not the best choice for you. Hey, there are always those super-cool robot dogs.</p>
+
+<p>If you are not often at home, and you really want a dog, you probably should invest in a dog walker. You'd probably be wise to choose a dog breed that isn't especially needy, too.</p>
+
+<p>Any dog you get should be suitable to not only your lifestyle, but your surroundings. If you live in a shoebox apartment, then a large dog is not a good choice. You don’t want your dog to develop health issues, be bored, or destroy things. Large dogs really belong in big places with lots of outdoor space.</p>
+
+<p>Puppies require the most work when it comes to house training. If you: (a) don’t want your things chewed up, or (b) don’t have the time or money to train the puppy, consider adopting an already housebroken, adult dog</p>
+
+<p>Regardless of the dog breed you choose, have fun! They say there is no better friend than a dog. We have to agree.</p>
+
+<h2>Dogs currently available for Rehome</h2><br> 
+<% @animal.each do |animal| %>
+<% if animal.type == "dog" %>
+  <p>Name: <%= animal.name %></p>
+  <p>Type: <%= animal.type  %></p>
+  <p>Sex: <%= animal.sex  %></p>
+  <p>Age: <%= animal.age  %></p>
+  <p>Description: <%= animal.description  %>
+  <% end %>
+  <br>
+  <hr />
+  <br>
+  <% end %>

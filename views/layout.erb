@@ -3,39 +3,46 @@
 <link href='../styles/layout.css' type='text/css' rel='stylesheet'>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>CodeClan Animal Shelter</title>
   </head>
   <body>
-<ul>
-    <li><a href="/">Home</a></li>
-    <li>About
-      <ul>
-        <li><a>Our Team</a></li>
-        <li><a>History</a></li>
-        <li><a>Branches</a></li>
-        <li><a>Newsletter</a></li>
+  <nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a>
+          <ul>
+            <li><a href="/about/ourteam">Our Team</a></li>
+            <li><a href="/about/history">History</a></li>
+            <li><a href="/about/branches">Branches</a></li>
+            <li><a href="/about/newsletter">Newsletter</a></li>
+          </ul>
+        </li>
+
+        <li><a href="/animals">Animals</a>
+            <ul>
+              <li><a href="/animals/cats">Cats</a></li>
+              <li><a href="/animals/dogs">Dogs</a></li>
+              <li><a href="/animals/other">Other</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/contact/">Contact</a>
+          <ul>
+            <li><a href="/contact/edinburgh">Edinburgh</a></li>
+            <li><a href="/contact/glasgow">Glasgow</a></li>
+            <li><a href="/contact/paisley">Paisley</a></li>
+          </ul>
+        </li>
+
+        <li><a href="/donate/">Donate</a></li>
       </ul>
-    </li>
+  </nav>
 
-    <li>Animals
-        <ul>
-          <li>Cats</li>
-          <li>Dogs</li>
-          <li>Other</li>
-        </ul>
-    </li>
+<center><img src="../images/logo.jpg.png"></center>
 
-    <li>Contact
-      <ul>
-        <li>Edinburgh</li>
-        <li>Glasgow</li>
-        <li>Paisley</li>
-      </ul>
-    </li>
-
-    <li>Donate</li>
-</ul>
-
+  <section id="content">
+    <%= yield %>
+  </section>
 
 
   </body>
