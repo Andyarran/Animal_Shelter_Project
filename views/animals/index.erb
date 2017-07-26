@@ -1,0 +1,58 @@
+<!-- <section class="filter_animal">
+ 
+    <ul>
+      <% @types.each do |type| %>
+        <li> <a href="/animals?type=<%= type.id %>"><%= type.name %></a></li>
+      <% end %>
+    </ul>
+</section> -->
+<br>
+
+<section id="animal_list">
+ <% @animals.each do |animal|  %>
+   <section class="animals">
+   <center><div class="pic_container">
+   <br><img src="<%= '/' + animal.image %>" align="center" >
+   </div></center><br><div class="animal_info"><h5>Name: <%= animal.name.capitalize %></h5>
+    <h5> Ready for Adoption? <%= animal.ready %></h5>
+    <h5><%= animal.description %></h5>
+    <form class="button" method="POST" action="/animals/<%= animal.id%>/delete">
+    <input type='submit' value="Delete"/>
+    <form class="button" method="GET" action="/animals/<%= animal.id%>/edit">
+    <input type='submit' value="Edit"/></form></div>
+    <br><br>
+    </section><br>
+    
+    <br>
+  <%  end  %>
+
+<br>
+<h1>Register new Animal</h1><br><br>
+
+<form class="form" method="POST" action="/animals">
+<section class="animals">
+<label for="name"> Name: </label>
+<input type="text" name="name" id="name">
+<br>
+<label for="animal_type"> Type: </label>
+<select type="text" name="type_id" id="type_id">
+<% @types.each do |type| %>
+<option value="<%=type.id%>"> <%= type.name %></option>
+<%end%>
+</select>
+<br><label for="sex"> Sex: </label>
+<input type="text" name="sex" id="sex"><br>
+<label for="age"> Age: </label>
+<input type="text" name="age" id="age" size="4"><br>
+<label for="ready">Ready for Adoption?</label>
+<input type="text" name="ready" id="ready" size="80"><br>
+<label for="description"> Description</label>
+<input type="text" name="description" id="description" size="80"><br>
+<label for="image">Image: </label>
+<input type="text" name="image" id="image" size="80"><br>
+
+
+<input type='submit' value="Add Animal"/>
+</form>
+
+</section>

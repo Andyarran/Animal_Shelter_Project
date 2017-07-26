@@ -1,14 +1,14 @@
 class AnimalType
 
-  attr_reader :type, :id
+  attr_reader :name, :id
 
   def initialize(options)
       @id = options['id'].to_i if options['id']
-      @type = options['type']
+      @name = options['name']
   end
 
   def save()
-      sql = " INSERT INTO animal_types(type) VALUES ('#{@type}') RETURNING *; "
+      sql = " INSERT INTO animal_types(name) VALUES ('#{@name}') RETURNING *; "
       animal_type = SqlRunner.run(sql).first
       @id = animal_type['id'].to_i
   end

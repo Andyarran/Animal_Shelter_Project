@@ -1,0 +1,20 @@
+
+<form method="POST" action="/animals/<%= @animal.id %>">
+      <label for="first_name">Name:</label>
+      <input type="text" name="name" id="name" value="<%= @animal.name %>"/>  
+      <label for="animal_type">Type:</label>
+      <input type="text" name="type_id" id="type_id"/>
+      <% @types.each do |type| %>
+      <option value="<%=type.id%>"> <%= type.name %></option>
+      <%end%>
+      <label for="sex">Sex:</label>
+      <input type="text" name="sex" id="sex" value="<%= @animal.sex %>"/>
+      <label for="age">Age:</label>
+      <input type="number" name="type_id" value="<%= @animal.type_id %>">
+      <input type="text" name="age" id="age" value="<%= @animal.age %>"/>
+      <label for="first_name">Ready for Adoption:</label>
+      <input type="text" name="ready" id="ready" value="<%= @animal.ready %>"/>
+      <label for="first_name">Description:</label>
+      <input type="text" name="description" id="description" value="<%= @animal.description %>"/>
+      <input type="submit" value="Update Pet">
+      </form>

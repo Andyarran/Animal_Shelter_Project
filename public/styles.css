@@ -1,0 +1,136 @@
+body {
+  background: url('../images/background.jpg') no-repeat;
+  background-size: cover;
+  font-family: Courier, Arial;
+}
+
+nav ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+nav ul li {
+float: left;
+width: 252px;
+height: 40px;
+background-color: black;
+opacity: 0.8;
+line-height: 40px;
+text-align: center;
+font-size: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+nav ul li a:hover {
+  background-color: #4286f4;
+}
+
+nav ul li ul li {
+  display: none;
+}
+
+nav ul li:hover ul li {
+  display: block
+}
+
+
+#content {
+  border-width: 3px;
+  border-style: solid;
+  border-color: transparent;
+  color: black;
+  background-color: transparent;
+  opacity: 0.8;
+  text-shadow: 1px 1px grey;
+  border-radius: 25px;
+  margin: 10px;
+  padding: 10px;
+}
+
+h1 {
+  border-style: dotted;
+  border-width: 2px;
+  text-align: center;
+  background-color: grey;
+  margin: 2px;
+  color: white;
+}
+
+.intro {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/*.filter_animal {
+  border-style: solid;
+  border-width: 5px;
+  border-color: grey;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+  margin: 2px;
+  background-color: white;
+  flex: 1;
+  flex-flow: row wrap
+}*/
+
+.filter_animal ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; 
+  line-height: 30px;
+  text-align: center;
+}
+
+.filter_animal ul a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 35px;
+}
+
+.animals {
+  border-style: solid;
+  border-width: 5px;
+  border-color: grey;
+  border-radius: 25px;
+  text-align: center;
+  text-shadow: 2px 2px red;
+  color: white;
+  margin: 2px;
+  background-color: grey;
+  flex: 1;
+  flex-flow: row wrap;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: black;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: solid 3px;
+    text-shadow: 2px 2px red;
+}
+
+.pic_container {
+
+    width: 300px;
+    height: 300px;
+}
+
+/* resize images */
+.pic_container img {
+    width: 100%;
+    height: 100%;
+    border: solid 2px;
+  }
+

@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS animal_types;
 
 CREATE TABLE animal_types(
 id SERIAL4 PRIMARY KEY,
-type VARCHAR(255) NOT NULL
+name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE customers(
@@ -19,10 +19,11 @@ CREATE TABLE animals(
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(255),
   type_id INT4 REFERENCES animal_types(id),
-  ready BOOLEAN,
+  ready VARCHAR(255),
   sex VARCHAR(255),
   age VARCHAR(255),
   description TEXT,
+  image VARCHAR(255),
   owner_id INT4
 );
 

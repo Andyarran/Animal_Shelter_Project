@@ -1,0 +1,14 @@
+<h1>Register new Animal</h1>
+
+<form method="POST" action="/animals">
+
+<label for="name">Name: </label>
+<input type="text" name="name" id="name">
+<label for="animal_type">Type: </label>
+<select type="text" name="animal_type" id="type_id">
+<% @animal_types.each do |type| %>
+<option value="<%name.id%>"> <%= name.type %></option>
+<%end%>
+<label for="image">Image: </label>
+<input type="text" name="image" id="image">
+</select>
